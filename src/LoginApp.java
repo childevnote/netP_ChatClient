@@ -1,12 +1,6 @@
 
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.Toolkit;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import java.awt.*;
+import javax.swing.*;
 
 public class LoginApp {
 	public static final Color YELLOW = new Color(250, 225, 0);
@@ -33,5 +27,4 @@ public class LoginApp {
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 	}
-
 }
