@@ -14,7 +14,13 @@ public class LoginApp {
 		JLabel lblImg = new JLabel("카카오톡이미지");
 		ImageIcon img;
 		JTextField insert_id = new JTextField();
+		insert_id.setFont(new Font("맑은 고딕 Semilight", Font.ITALIC, 12));
+		insert_id.setText("\uC544\uC774\uB514");
+		insert_id.setToolTipText("\uC544\uC774\uB514");
 		JTextField insert_pw = new JTextField();
+		insert_pw.setFont(new Font("맑은 고딕 Semilight", Font.ITALIC, 12));
+		insert_pw.setText("\uBE44\uBC00\uBC88\uD638");
+		insert_pw.setToolTipText("");
 		JButton loginbtn = new JButton("로그인");
 
 		img = new ImageIcon("src\\img\\icon.png");
@@ -22,18 +28,16 @@ public class LoginApp {
 
 		pnlBg.setBackground(YELLOW);
 		pnlBg.setLayout(null);
-		frame.add(pnlBg);
+		frame.getContentPane().add(pnlBg);
 
 		lblImg.setSize(100, 100);
 		lblImg.setBounds(175, 130, 100, 100);
 		pnlBg.add(lblImg);
 
 		insert_id.setBounds(125, 240, 200, 30);
-		insert_id.setText("아이디를 입력하세요.");
 		pnlBg.add(insert_id);
 
 		insert_pw.setBounds(125, 270, 200, 30);
-		insert_pw.setText("비밀번호를 입력하세요.");
 		pnlBg.add(insert_pw);
 
 		loginbtn.setBounds(125, 310, 200, 40);
