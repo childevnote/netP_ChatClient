@@ -12,7 +12,11 @@ public class LoginApp {
 		JFrame frame = new JFrame("로그인");
 		JPanel pnlBg = new JPanel();
 		JLabel lblImg = new JLabel("카카오톡이미지");
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Image img_icon = toolkit.getImage("src\\img\\img_icon.png");
+
 		ImageIcon img;
+		
 		JTextField insert_id = new JTextField();
 		insert_id.setFont(new Font("맑은 고딕 Semilight", Font.ITALIC, 12));
 		insert_id.setText("아이디");
@@ -25,10 +29,11 @@ public class LoginApp {
 
 		img = new ImageIcon("src\\img\\icon.png");
 		lblImg = new JLabel(img);
-
+		
 		pnlBg.setBackground(YELLOW);
 		pnlBg.setLayout(null);
 		frame.getContentPane().add(pnlBg);
+		frame.setIconImage(img_icon);
 
 		lblImg.setSize(100, 100);
 		lblImg.setBounds(175, 130, 100, 100);
