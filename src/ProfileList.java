@@ -34,13 +34,14 @@ public class ProfileList {
 		pnlBg.setLayout(null);
 		frame.getContentPane().add(pnlBg);
 		
-		JPanel sidePanel = new JPanel(); //왼쪽 사이드바
+		JPanel sidePanel = new JPanel(); 
 		sidePanel.setBackground(new Color(227, 228, 230)); 
 		sidePanel.setForeground(new Color(255, 255, 255));
-		sidePanel.setBounds(0, 0, 70, 611);
+		sidePanel.setLayout(null);
+		sidePanel.setBounds(0, 0, 70, 650);
 		pnlBg.add(sidePanel);
 		
-		JButton homeButton = new JButton(homeImg); //홈버튼
+		JButton homeButton = new JButton(homeImg); //프로필버튼
 		homeButton.setForeground(new Color(255, 255, 255));
 		homeButton.setBackground(new Color(227, 228, 230));
 		homeButton.setBounds(0, 0, 70, 70);
@@ -48,7 +49,7 @@ public class ProfileList {
 		homeButton.setFocusPainted(false);
 		sidePanel.add(homeButton);
 	
-		JButton chatButton=new JButton(chatImg); //채팅방 버튼
+		JButton chatButton=new JButton(chatImg);//채팅방버튼
 		chatButton.setForeground(new Color(255, 255, 255));
 		chatButton.setBackground(new Color(227, 228, 230));
 		chatButton.setBounds(0, 60, 70, 70);
@@ -64,7 +65,7 @@ public class ProfileList {
 		settingButton.setFocusPainted(false);
 		sidePanel.add(settingButton);
 
-		JButton logoutButton = new JButton(logoutImg);// 로그아웃 버튼
+		JButton logoutButton = new JButton(logoutImg);//로그아웃버튼
 		logoutButton.setForeground(new Color(255, 255, 255));
 		logoutButton.setBackground(new Color(227, 228, 230));
 		logoutButton.setBounds(0, 530, 70, 70);
@@ -72,9 +73,9 @@ public class ProfileList {
 		logoutButton.setFocusPainted(false);
 		sidePanel.add(logoutButton);
 		
-		JPanel loginUser = new JPanel();
+		JPanel loginUser = new JPanel();//유저
 		loginUser.setBackground(new Color(255, 255, 255));
-		loginUser.setBounds(66, 0, 368, 80);
+		loginUser.setBounds(70, 0, 368, 80);
 		pnlBg.add(loginUser);
 		loginUser.setLayout(null);
 		
@@ -86,13 +87,13 @@ public class ProfileList {
 		loginUser.add(loginUserButton);
 		
 		JLabel lblNewLabel = new JLabel("Master");
-		lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+		lblNewLabel.setFont(new Font("맑은 고딕 Semilight", Font.BOLD, 15));
 		lblNewLabel.setBounds(89, 35, 160, 15);
 		loginUser.add(lblNewLabel);
 
 		JPanel loginUser01 = new JPanel(); //User1
 		loginUser01.setBackground(new Color(255, 255, 255));
-		loginUser01.setBounds(66, 80, 368, 80);
+		loginUser01.setBounds(70, 80, 368, 80);
 		pnlBg.add(loginUser01);
 		loginUser01.setLayout(null);
 		
@@ -104,13 +105,13 @@ public class ProfileList {
 		loginUser01.add(loginUserButton01);
 		
 		JLabel lblNewLabel01 = new JLabel("User1");
-		lblNewLabel01.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+		lblNewLabel01.setFont(new Font("맑은 고딕 Semilight", Font.BOLD, 15));
 		lblNewLabel01.setBounds(89, 35, 160, 15);
 		loginUser01.add(lblNewLabel01);
 		
 		JPanel loginUser02 = new JPanel(); //User2
 		loginUser02.setBackground(new Color(255, 255, 255));
-		loginUser02.setBounds(66, 160, 368, 80);
+		loginUser02.setBounds(70, 160, 368, 80);
 		pnlBg.add(loginUser02);
 		loginUser02.setLayout(null);
 		
@@ -122,7 +123,7 @@ public class ProfileList {
 		loginUser02.add(loginUserButton02);
 		
 		JLabel lblNewLabel02 = new JLabel("User2");
-		lblNewLabel02.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+		lblNewLabel02.setFont(new Font("맑은 고딕 Semilight", Font.BOLD, 15));
 		lblNewLabel02.setBounds(89, 35, 160, 15);
 		loginUser02.add(lblNewLabel02);
 		
