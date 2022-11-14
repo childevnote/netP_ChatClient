@@ -15,48 +15,62 @@ import java.awt.Font;
 import javax.swing.JLabel;
 
 public class ProfileList {
-	ImageIcon homeImg=new ImageIcon("src\\img\\home_FILL0.png");
-	ImageIcon chatImg=new ImageIcon("src\\img\\chat_bubble.png");
-	ImageIcon settingImg=new ImageIcon("src\\img\\settings_FILL0.png");
+
+	public static final Color YELLOW = new Color(250, 225, 0);
+	public static final Color BROWN = new Color(82, 55, 56);
+	ImageIcon homeImg = new ImageIcon("src\\img\\home_FILL0.png");
+	ImageIcon chatImg = new ImageIcon("src\\img\\chat_bubble.png");
+	ImageIcon settingImg = new ImageIcon("src\\img\\settings_FILL0.png");
+	ImageIcon logoutImg = new ImageIcon("src\\img\\logout.png");
 	ImageIcon userImg=new ImageIcon("src\\img\\account_circle.png");
 	
+
 	public ProfileList() {
-		JFrame frame = new JFrame("ƒ´ƒ´ø¿≈Â");
+		JFrame frame = new JFrame("Ïπ¥Ïπ¥Ïò§ÌÜ°");
 		JPanel pnlBg = new JPanel();
+		JPanel pnlList = new JPanel();
 
 		pnlBg.setBackground(new Color(255, 255, 255)); 
 		pnlBg.setLayout(null);
 		frame.getContentPane().add(pnlBg);
 		
-		JPanel sidePanel = new JPanel(); //øﬁ¬  ªÁ¿ÃµÂπŸ
+		JPanel sidePanel = new JPanel(); //ÏôºÏ™Ω ÏÇ¨Ïù¥ÎìúÎ∞î
 		sidePanel.setBackground(new Color(227, 228, 230)); 
 		sidePanel.setForeground(new Color(255, 255, 255));
-		sidePanel.setBounds(0, 0, 66, 611);
+		sidePanel.setBounds(0, 0, 70, 611);
 		pnlBg.add(sidePanel);
 		
-		JButton homeButton = new JButton(homeImg); //»®πˆ∆∞
+		JButton homeButton = new JButton(homeImg); //ÌôàÎ≤ÑÌäº
 		homeButton.setForeground(new Color(255, 255, 255));
 		homeButton.setBackground(new Color(227, 228, 230));
-		homeButton.setBounds(0, 0, 66, 68);
+		homeButton.setBounds(0, 0, 70, 70);
 		homeButton.setBorderPainted(false);
 		homeButton.setFocusPainted(false);
 		sidePanel.add(homeButton);
-		
-		JButton chatButton=new JButton(chatImg); //√§∆√πÊ πˆ∆∞
+	
+		JButton chatButton=new JButton(chatImg); //Ï±ÑÌåÖÎ∞© Î≤ÑÌäº
 		chatButton.setForeground(new Color(255, 255, 255));
 		chatButton.setBackground(new Color(227, 228, 230));
-		chatButton.setBounds(0, 69, 66, 68);
+		chatButton.setBounds(0, 60, 70, 70);
 		chatButton.setBorderPainted(false);
 		chatButton.setFocusPainted(false);
 		sidePanel.add(chatButton);
-		
-		JButton settingButton=new JButton(settingImg); //º≥¡§ πˆ∆∞
+    
+		JButton settingButton=new JButton(settingImg); //ÏÑ§Ï†ï Î≤ÑÌäº
 		settingButton.setForeground(new Color(255, 255, 255));
 		settingButton.setBackground(new Color(227, 228, 230));
-		settingButton.setBounds(0, 129, 66, 68);
+		settingButton.setBounds(0, 125, 70, 70);
 		settingButton.setBorderPainted(false);
 		settingButton.setFocusPainted(false);
 		sidePanel.add(settingButton);
+
+		JButton logoutButton = new JButton(logoutImg);// Î°úÍ∑∏ÏïÑÏõÉ Î≤ÑÌäº
+		logoutButton.setForeground(new Color(255, 255, 255));
+		logoutButton.setBackground(new Color(227, 228, 230));
+		logoutButton.setBounds(0, 530, 70, 70);
+		logoutButton.setBorderPainted(false);
+		logoutButton.setFocusPainted(false);
+		sidePanel.add(logoutButton);
 		
 		JPanel loginUser = new JPanel();
 		loginUser.setBackground(new Color(255, 255, 255));
@@ -72,7 +86,7 @@ public class ProfileList {
 		loginUser.add(loginUserButton);
 		
 		JLabel lblNewLabel = new JLabel("Master");
-		lblNewLabel.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
+		lblNewLabel.setFont(new Font("ÎßëÏùÄ Í≥†Îîï", Font.BOLD, 15));
 		lblNewLabel.setBounds(89, 35, 160, 15);
 		loginUser.add(lblNewLabel);
 
@@ -90,7 +104,7 @@ public class ProfileList {
 		loginUser01.add(loginUserButton01);
 		
 		JLabel lblNewLabel01 = new JLabel("User1");
-		lblNewLabel01.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
+		lblNewLabel01.setFont(new Font("ÎßëÏùÄ Í≥†Îîï", Font.BOLD, 15));
 		lblNewLabel01.setBounds(89, 35, 160, 15);
 		loginUser01.add(lblNewLabel01);
 		
@@ -108,7 +122,7 @@ public class ProfileList {
 		loginUser02.add(loginUserButton02);
 		
 		JLabel lblNewLabel02 = new JLabel("User2");
-		lblNewLabel02.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
+		lblNewLabel02.setFont(new Font("ÎßëÏùÄ Í≥†Îîï", Font.BOLD, 15));
 		lblNewLabel02.setBounds(89, 35, 160, 15);
 		loginUser02.add(lblNewLabel02);
 		
