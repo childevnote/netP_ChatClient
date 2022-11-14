@@ -15,12 +15,12 @@ public class LoginApp {
 		ImageIcon img;
 		JTextField insert_id = new JTextField();
 		insert_id.setFont(new Font("맑은 고딕 Semilight", Font.ITALIC, 12));
-		insert_id.setText("\uC544\uC774\uB514");
-		insert_id.setToolTipText("\uC544\uC774\uB514");
+		insert_id.setText("아이디");
+		insert_id.setToolTipText("아이디");
 		JTextField insert_pw = new JTextField();
 		insert_pw.setFont(new Font("맑은 고딕 Semilight", Font.ITALIC, 12));
-		insert_pw.setText("\uBE44\uBC00\uBC88\uD638");
-		insert_pw.setToolTipText("");
+		insert_pw.setText("비밀번호");
+		insert_pw.setToolTipText("비밀번호");
 		JButton loginbtn = new JButton("로그인");
 
 		img = new ImageIcon("src\\img\\icon.png");
@@ -61,7 +61,6 @@ public class LoginApp {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		new LoginApp();
-		
 		System.out.println("test");
 	}
 }
