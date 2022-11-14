@@ -1,14 +1,15 @@
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class LoginApp {
 	public static final Color YELLOW = new Color(250, 225, 0);
 	public static final Color BROWN = new Color(82, 55, 56);
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		JFrame frame = new JFrame("카카오톡");
+	public LoginApp() {
+		JFrame frame = new JFrame("로그인");
 		JPanel pnlBg = new JPanel();
 		JLabel lblImg = new JLabel("카카오톡이미지");
 		ImageIcon img;
@@ -40,9 +41,22 @@ public class LoginApp {
 		loginbtn.setForeground(YELLOW);
 		pnlBg.add(loginbtn);
 
+		loginbtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new ProfileList();
+				frame.setVisible(false);
+
+			}
+		});
+
 		frame.setVisible(true);
 		frame.setSize(450, 650);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new LoginApp();
 	}
 }
