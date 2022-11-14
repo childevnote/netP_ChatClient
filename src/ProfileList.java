@@ -12,12 +12,20 @@ import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JTextPane;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
+
 import javax.swing.JLabel;
 
 public class ProfileList {
 
 	public static final Color YELLOW = new Color(250, 225, 0);
 	public static final Color BROWN = new Color(82, 55, 56);
+	
+	Toolkit toolkit = Toolkit.getDefaultToolkit();
+	Image img_icon = toolkit.getImage("src\\img\\img_icon.png");
+	
+	
 	ImageIcon homeImg = new ImageIcon("src\\img\\home_FILL0.png");
 	ImageIcon chatImg = new ImageIcon("src\\img\\chat_bubble.png");
 	ImageIcon settingImg = new ImageIcon("src\\img\\settings_FILL0.png");
@@ -29,6 +37,7 @@ public class ProfileList {
 		JFrame frame = new JFrame("카카오톡");
 		JPanel pnlBg = new JPanel();
 		JPanel pnlList = new JPanel();
+		frame.setIconImage(img_icon);
 
 		pnlBg.setBackground(new Color(255, 255, 255)); 
 		pnlBg.setLayout(null);
