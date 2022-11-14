@@ -45,7 +45,6 @@ public class LoginApp {
 			public void actionPerformed(ActionEvent e) {
 				new ProfileList();
 				frame.setVisible(false);
-
 			}
 		});
 
@@ -58,5 +57,7 @@ public class LoginApp {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		new LoginApp();
+		
+		System.out.println("test");
 	}
 }
