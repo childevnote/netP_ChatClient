@@ -66,6 +66,6 @@ public class LoginApp {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		new LoginApp();
-		System.out.println("test");
+
 	}
 }
