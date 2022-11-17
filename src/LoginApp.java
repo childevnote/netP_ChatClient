@@ -60,8 +60,9 @@ public class LoginApp {
 				if (idcheck) {
 					JOptionPane.showMessageDialog(null, conn_id + "님, 환영합니다.", "로그인 성공",
 							JOptionPane.INFORMATION_MESSAGE);
-					new ProfileList(conn_id);
+					new HomePage(conn_id);
 					frame.setVisible(false);
+					
 				} else {
 					insert_id.setText("");
 					JOptionPane.showMessageDialog(null, "아이디가 존재하지 않습니다.", "로그인 오류", 
