@@ -1,14 +1,20 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.color.ColorSpace;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.JOptionPane;
 
 public class HomePage {
@@ -36,22 +42,25 @@ public class HomePage {
 
 		JPanel profListpnl = new JPanel();
 		profListpnl.setBackground(WHITE);
-		profListpnl.setLayout(new GridLayout(idList.length, 1));
 		profListpnl.setBounds(70, 0, 380, 650);
+		profListpnl.setLayout(null);
 		pnlBg.add(profListpnl);
 
 		Friends master = new Friends(profListpnl, conn_id); // 로그인 유저 생성
-		master.friend.setLayout(new FlowLayout(FlowLayout.LEFT));
-		master.friend.setSize(380,70);
-		Friends[] user = new Friends[10]; // 친구생성
-
+		master.friend.setBackground(new Color(255,255, 153));
+		Friends[] user = new Friends[idList.length]; // 친구생성
+		int id_idx = 0;
 		for (int i = 0; i < idList.length; i++) {
-			if (conn_id != idList[i]) {
-				user[i] = new Friends(profListpnl, "User " + idList[i]);
-				user[i].friend.setSize(380, 70);
-			}
+			if (conn_id == idList[i])
+				id_idx = i;
 		}
-
+		for (int i = id_idx; i < idList.length - 1; i++) {
+			idList[i] = idList[i + 1];
+		}
+		for (int i = 0; i < idList.length - 1; i++) {
+			user[i] = new Friends(profListpnl, "User " + idList[i]);
+			user[i].friend.setBounds(0, 70 * (i + 1), 380, 70);
+		}
 		JPanel chatListpnl = new JPanel();
 		chatListpnl.setBackground(WHITE);
 		chatListpnl.setLayout(null);
@@ -60,14 +69,12 @@ public class HomePage {
 
 		JPanel sidePanel = new JPanel();
 		sidePanel.setBackground(GREY);
-		sidePanel.setForeground(WHITE);
 		sidePanel.setLayout(null);
 		sidePanel.setBounds(0, 0, 70, 650);
 		pnlBg.add(sidePanel);
 
 		JButton homeButton = new JButton(homeImg); // 프로필 리스트 버튼
-		homeButton.setForeground(WHITE);
-		homeButton.setBackground(GREY);
+		homeButton.setBackground(null);
 		homeButton.setBounds(0, 0, 70, 70);
 		homeButton.setBorderPainted(false);
 		homeButton.setFocusPainted(false);
@@ -81,8 +88,7 @@ public class HomePage {
 		});
 
 		JButton chatButton = new JButton(chatImg);// 채팅 리스트 버튼
-		chatButton.setForeground(WHITE);
-		chatButton.setBackground(GREY);
+		chatButton.setBackground(null);
 		chatButton.setBounds(0, 60, 70, 70);
 		chatButton.setBorderPainted(false);
 		chatButton.setFocusPainted(false);
@@ -96,16 +102,14 @@ public class HomePage {
 		});
 
 		JButton settingButton = new JButton(settingImg); // 설정 버튼
-		settingButton.setForeground(WHITE);
-		settingButton.setBackground(GREY);
+		settingButton.setBackground(null);
 		settingButton.setBounds(0, 125, 70, 70);
 		settingButton.setBorderPainted(false);
 		settingButton.setFocusPainted(false);
 		sidePanel.add(settingButton);
 
 		JButton logoutButton = new JButton(logoutImg);// 로그아웃 버튼
-		logoutButton.setForeground(WHITE);
-		logoutButton.setBackground(GREY);
+		logoutButton.setBackground(null);
 		logoutButton.setBounds(0, 530, 70, 70);
 		logoutButton.setBorderPainted(false);
 		logoutButton.setFocusPainted(false);
