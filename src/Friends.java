@@ -1,8 +1,10 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import java.awt.FlowLayout;
 
@@ -23,7 +25,7 @@ public class Friends { // 친구목록 생성 클래스
 
 		JButton UserButton = new JButton(userImg); // 프로필
 		UserButton.setSize(70, 70);
-		UserButton.setBackground(WHITE);
+		UserButton.setBackground(null);
 		UserButton.setBorderPainted(false);
 		UserButton.setFocusPainted(false);
 		friend.add(UserButton);

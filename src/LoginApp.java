@@ -5,10 +5,10 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class LoginApp {
-	public static final int IDNUM = 10;
 	public static final Color YELLOW = new Color(250, 225, 0);
 	public static final Color BROWN = new Color(82, 55, 56);
-	public static final String[] idList = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j" };
+	public static final String[] idList = { "a", "b", "c", "d", "e", "f", "g"};
+	public static final int IDNUM = idList.length;
 	String conn_id = null;
 	Boolean idcheck = false;
 
