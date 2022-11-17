@@ -1,25 +1,14 @@
 import java.awt.Color;
-
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JPopupMenu;
-import javax.swing.JScrollPane;
-
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.SwingConstants;
-import javax.swing.JTextPane;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.Toolkit;
-
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class HomePage {
@@ -36,29 +25,33 @@ public class HomePage {
 	ImageIcon settingImg = new ImageIcon("src\\img\\settings_FILL0.png");
 	ImageIcon logoutImg = new ImageIcon("src\\img\\logout.png");
 
-	public HomePage(String conn_id) {
-		JFrame frame = new JFrame("移댁뭅�삤�넚");
+	public HomePage(String[] idList, String conn_id) {
+		JFrame frame = new JFrame("카카오톡");
 		frame.setIconImage(img_icon);
-		
+
 		JPanel pnlBg = new JPanel();
 		pnlBg.setBackground(WHITE);
 		pnlBg.setLayout(null);
 		frame.getContentPane().add(pnlBg);
-		
-		JPanel profListpnl=new JPanel();
+
+		JPanel profListpnl = new JPanel();
 		profListpnl.setBackground(WHITE);
-		profListpnl.setLayout(null);
+		profListpnl.setLayout(new GridLayout(idList.length, 1));
 		profListpnl.setBounds(70, 0, 380, 650);
 		pnlBg.add(profListpnl);
-		
-		Friends master=new Friends(profListpnl, conn_id); //로그인 유저 생성
-		master.friend.setBounds(0,0,380,70);
-		Friends [] user=new Friends[10]; //친구생성
-		for(int i=0; i<10; i++) {
-			 user[i]=new Friends(profListpnl, "user"+i);
-			 user[i].friend.setBounds(0,70*(i+1),380,70);
+
+		Friends master = new Friends(profListpnl, conn_id); // 로그인 유저 생성
+		master.friend.setLayout(new FlowLayout(FlowLayout.LEFT));
+		master.friend.setSize(380,70);
+		Friends[] user = new Friends[10]; // 친구생성
+
+		for (int i = 0; i < idList.length; i++) {
+			if (conn_id != idList[i]) {
+				user[i] = new Friends(profListpnl, "User " + idList[i]);
+				user[i].friend.setSize(380, 70);
+			}
 		}
-		
+
 		JPanel chatListpnl = new JPanel();
 		chatListpnl.setBackground(WHITE);
 		chatListpnl.setLayout(null);
@@ -72,7 +65,7 @@ public class HomePage {
 		sidePanel.setBounds(0, 0, 70, 650);
 		pnlBg.add(sidePanel);
 
-		JButton homeButton = new JButton(homeImg); // �봽濡쒗븘踰꾪듉
+		JButton homeButton = new JButton(homeImg); // 프로필 리스트 버튼
 		homeButton.setForeground(WHITE);
 		homeButton.setBackground(GREY);
 		homeButton.setBounds(0, 0, 70, 70);
@@ -87,7 +80,7 @@ public class HomePage {
 			}
 		});
 
-		JButton chatButton = new JButton(chatImg);// 梨꾪똿諛⑸쾭�듉
+		JButton chatButton = new JButton(chatImg);// 채팅 리스트 버튼
 		chatButton.setForeground(WHITE);
 		chatButton.setBackground(GREY);
 		chatButton.setBounds(0, 60, 70, 70);
@@ -102,7 +95,7 @@ public class HomePage {
 			}
 		});
 
-		JButton settingButton = new JButton(settingImg); // �꽕�젙 踰꾪듉
+		JButton settingButton = new JButton(settingImg); // 설정 버튼
 		settingButton.setForeground(WHITE);
 		settingButton.setBackground(GREY);
 		settingButton.setBounds(0, 125, 70, 70);
@@ -110,7 +103,7 @@ public class HomePage {
 		settingButton.setFocusPainted(false);
 		sidePanel.add(settingButton);
 
-		JButton logoutButton = new JButton(logoutImg);// 濡쒓렇�븘�썐踰꾪듉
+		JButton logoutButton = new JButton(logoutImg);// 로그아웃 버튼
 		logoutButton.setForeground(WHITE);
 		logoutButton.setBackground(GREY);
 		logoutButton.setBounds(0, 530, 70, 70);
@@ -119,7 +112,7 @@ public class HomePage {
 		logoutButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				int result = JOptionPane.showConfirmDialog(null, conn_id + "�떂 濡쒓렇�븘�썐 �븯�떆寃좎뒿�땲源�?", "濡쒓렇�븘�썐",
+				int result = JOptionPane.showConfirmDialog(null, conn_id + "님 로그아웃 하시겠습니까?", "로그아웃",
 						JOptionPane.YES_NO_OPTION);
 				if (result == JOptionPane.YES_OPTION) {
 					new LoginApp();
