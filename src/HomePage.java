@@ -12,6 +12,7 @@ import java.awt.color.ColorSpace;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
@@ -30,6 +31,7 @@ public class HomePage {
 	ImageIcon chatImg = new ImageIcon("src\\img\\chat_bubble.png");
 	ImageIcon settingImg = new ImageIcon("src\\img\\settings_FILL0.png");
 	ImageIcon logoutImg = new ImageIcon("src\\img\\logout.png");
+	ImageIcon chatplusImg = new ImageIcon("src\\img\\chat_plus.png");
 
 	public HomePage(String[] idList, String conn_id) {
 		JFrame frame = new JFrame("카카오톡");
@@ -47,7 +49,7 @@ public class HomePage {
 		pnlBg.add(profListpnl);
 
 		Friends master = new Friends(profListpnl, conn_id); // 로그인 유저 생성
-		master.friend.setBackground(new Color(255,255, 153));
+		master.friend.setBackground(new Color(255, 255, 153));
 		Friends[] user = new Friends[idList.length]; // 친구생성
 		int id_idx = 0;
 		for (int i = 0; i < idList.length; i++) {
@@ -67,6 +69,23 @@ public class HomePage {
 		chatListpnl.setBounds(70, 0, 380, 650);
 		pnlBg.add(chatListpnl);
 
+		JButton chatPlusBtn = new JButton(chatplusImg);
+		chatPlusBtn.setBackground(null);
+		chatPlusBtn.setBounds(300, 540, 50, 50);
+		chatPlusBtn.setBorderPainted(false);
+		chatPlusBtn.setFocusPainted(false);
+		chatListpnl.add(chatPlusBtn);
+
+		JPanel settingpnl = new JPanel();
+		settingpnl.setBackground(WHITE);
+		settingpnl.setLayout(null);
+		settingpnl.setBounds(70, 0, 380, 650);
+		pnlBg.add(settingpnl);
+
+		JLabel test = new JLabel("설정 페이지 입니다.");
+		test.setBounds(0, 0, 300, 30);
+		settingpnl.add(test);
+
 		JPanel sidePanel = new JPanel();
 		sidePanel.setBackground(GREY);
 		sidePanel.setLayout(null);
@@ -82,8 +101,9 @@ public class HomePage {
 		homeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				profListpnl.setVisible(true);
 				chatListpnl.setVisible(false);
+				settingpnl.setVisible(false);
+				profListpnl.setVisible(true);
 			}
 		});
 
@@ -97,6 +117,7 @@ public class HomePage {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				profListpnl.setVisible(false);
+				settingpnl.setVisible(false);
 				chatListpnl.setVisible(true);
 			}
 		});
@@ -107,6 +128,14 @@ public class HomePage {
 		settingButton.setBorderPainted(false);
 		settingButton.setFocusPainted(false);
 		sidePanel.add(settingButton);
+		chatButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				profListpnl.setVisible(false);
+				chatListpnl.setVisible(false);
+				settingpnl.setVisible(true);
+			}
+		});
 
 		JButton logoutButton = new JButton(logoutImg);// 로그아웃 버튼
 		logoutButton.setBackground(null);
