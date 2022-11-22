@@ -1,44 +1,62 @@
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
 
-public class LoginApp {
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class LoginApp extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final Color YELLOW = new Color(250, 225, 0);
 	public static final Color BROWN = new Color(82, 55, 56);
-	public static final String[] idList = { "a", "b", "c", "d", "e", "f", "g"};
-	public static final int IDNUM = idList.length;
-	String conn_id = null;
-	Boolean idcheck = false;
+	static final String ip_addr = "127.0.0.1";
+	static final String port_no = "30000";
+
+	JPanel pnlBg = new JPanel();
+	JLabel lblImg = new JLabel("카카오톡이미지");
+	JLabel info = new JLabel();
+	JTextField insert_id = new JTextField();
+	JButton loginbtn = new JButton("로그인");
+	Toolkit toolkit = Toolkit.getDefaultToolkit();
+	Image img_icon = toolkit.getImage("src\\img\\img_icon.png");
+	ImageIcon img;
 
 	public LoginApp() {
-		JFrame frame = new JFrame("로그인");
-		JPanel pnlBg = new JPanel();
-		JLabel lblImg = new JLabel("카카오톡이미지");
-		Toolkit toolkit = Toolkit.getDefaultToolkit();
-		Image img_icon = toolkit.getImage("src\\img\\img_icon.png");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(450, 650);
+		setLocationRelativeTo(null);
+		setResizable(false);
 
-		ImageIcon img;
-
-		JTextField insert_id = new JTextField();
-		insert_id.setFont(new Font("맑은 고딕 Semilight", Font.ITALIC, 12));
-		insert_id.setText("아이디");
+		insert_id.setFont(new Font("맑은 고딕 Semilight", Font.BOLD, 12));
 		insert_id.setToolTipText("아이디");
-
-		JButton loginbtn = new JButton("로그인");
 
 		img = new ImageIcon("src\\img\\icon.png");
 		lblImg = new JLabel(img);
 
 		pnlBg.setBackground(YELLOW);
 		pnlBg.setLayout(null);
-		frame.getContentPane().add(pnlBg);
-		frame.setIconImage(img_icon);
+		getContentPane().add(pnlBg);
+		setIconImage(img_icon);
 
-		lblImg.setSize(100, 100);
 		lblImg.setBounds(175, 130, 100, 100);
 		pnlBg.add(lblImg);
+
+		info.setText("이름을 입력해주세요.");
+		info.setBounds(125, 270, 200, 30);
+		pnlBg.add(info);
 
 		insert_id.setBounds(125, 240, 200, 30);
 		pnlBg.add(insert_id);
@@ -50,36 +68,27 @@ public class LoginApp {
 
 		loginbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for (int i = 0; i < IDNUM; i++) {
-					if (insert_id.getText().equals(idList[i])) {
-						idcheck = true;
-						conn_id = idList[i];
-						break;
-					}
-				}
-				if (idcheck) {
-					JOptionPane.showMessageDialog(null, conn_id + "님, 환영합니다.", "로그인 성공",
-							JOptionPane.INFORMATION_MESSAGE);
-					new HomePage(idList, conn_id);
-					frame.setVisible(false);
-
-				} else {
-					insert_id.setText("");
-					JOptionPane.showMessageDialog(null, "아이디가 존재하지 않습니다.", "로그인 오류", JOptionPane.WARNING_MESSAGE);
-				}
-
+				String username = insert_id.getText().trim();
+				JOptionPane.showMessageDialog(null, username + "님, 환영합니다.", "로그인 성공", JOptionPane.INFORMATION_MESSAGE);
+				new HomePage(username, ip_addr, port_no);
+				setVisible(false);
 			}
 		});
-
-		frame.setVisible(true);
-		frame.setSize(450, 650);
-		frame.setLocationRelativeTo(null);
-		frame.setResizable(false);
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new LoginApp();
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LoginApp frame = new LoginApp();
+					frame.setTitle("카카오톡");
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 
 	}
 }

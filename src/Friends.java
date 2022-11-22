@@ -1,23 +1,18 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-
 import java.awt.FlowLayout;
-
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class Friends { // 친구목록 생성 클래스
 	public static final Color WHITE = new Color(255, 255, 255);
 	ImageIcon userImg = new ImageIcon("src\\img\\account_circle.png");
 	JPanel friend = new JPanel();
 
-	public Friends(JPanel profListpnl, String conn_id) {
+	public Friends(JPanel profListpnl, String username) {
 		friend.setLayout(new FlowLayout(FlowLayout.LEFT));
 		friend.setSize(380, 70);
 		friend.setVisible(true);
@@ -30,7 +25,7 @@ public class Friends { // 친구목록 생성 클래스
 		UserButton.setFocusPainted(false);
 		friend.add(UserButton);
 
-		JLabel lblNewLabel = new JLabel(conn_id); // 이름
+		JLabel lblNewLabel = new JLabel(username); // 이름
 		lblNewLabel.setFont(new Font("맑은고딕 Semilight", Font.BOLD, 15));
 		lblNewLabel.setSize(160, 30);
 		friend.add(lblNewLabel);
