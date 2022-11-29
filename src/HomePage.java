@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.Vector;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,6 +24,8 @@ public class HomePage extends JFrame {
 	private Socket socket; // 연결소켓
 	private ObjectInputStream ois;
 	private ObjectOutputStream oos;
+	private Vector user_vc;
+	public String UserName = "";
 	public static final Color YELLOW = new Color(250, 225, 0);
 	public static final Color BROWN = new Color(82, 55, 56);
 	public static final Color WHITE = new Color(255, 255, 255);
@@ -63,6 +66,12 @@ public class HomePage extends JFrame {
 
 		Friends master = new Friends(profListpnl, username); // 로그인 유저 생성
 		master.friend.setBackground(new Color(255, 255, 153));
+
+//		for (int i = 0; i < user_vc.size(); i++) {
+//			UserService user = (UserService) user_vc.elementAt(i);
+//			Friends friends = new Friends(profListpnl, user.UserName);
+//			friends.friend.setBackground(new Color(255, 255, 153));
+//		}
 
 		chatListpnl.setBackground(WHITE);
 		chatListpnl.setLayout(null);
@@ -128,7 +137,7 @@ public class HomePage extends JFrame {
 		settingButton.setBorderPainted(false);
 		settingButton.setFocusPainted(false);
 		sidePanel.add(settingButton);
-		chatButton.addActionListener(new ActionListener() {
+		settingButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				profListpnl.setVisible(false);
